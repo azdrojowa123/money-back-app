@@ -15,5 +15,10 @@ import { Loan } from '../listloans/listloans.component';
     return this.http.get<Loan[]>(`http://localhost:8088/${username}/loans`);
   }
 
+  public retriveFriends(username){
+    return this.http.get<Loan[]>(`http://localhost:8088/${username}/friends`);
+
+  }
+
 
 }

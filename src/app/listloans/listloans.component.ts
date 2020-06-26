@@ -22,6 +22,7 @@ export class Loan{
 export class ListloansComponent implements OnInit {
 
   loans: Loan[]
+  friends: Loan[]
   username="costam"
   name="xd"
 
@@ -35,6 +36,7 @@ export class ListloansComponent implements OnInit {
     this.username=this.router.snapshot.params['username']
     sessionStorage.setItem('setname',this.username) 
     this.refreshLoans(this.username);
+    
   }
 
   refreshLoans(username){
@@ -43,8 +45,13 @@ export class ListloansComponent implements OnInit {
         this.loans = data;
         console.log(data);
 
-      }
-    )
-    //window.location.reload();
+      })
+      this.loanService.retriveFriends(username).subscribe(
+        data => {
+          this.friends = data;
+          console.log(data);
+        })
+    }
   }
-}
+
+  

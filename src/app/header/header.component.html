@@ -7,10 +7,10 @@
       <li><a *ngIf="this.sessionStorageItem()" routerLink="/loans" class="nav-link">Loans</a></li>
     </ul>
   </nav>
-
-  <input type="text" name="username"  [(ngModel)]="username" > 
-  <button  (click)="executeList()" class="btn btn-default">Search</button>
-
+  <div class="text-center border">
+  <input *ngIf="this.sessionStorageItem()==false" type="text" name="username"  [(ngModel)]="username" > 
+  <button *ngIf="this.sessionStorageItem()==false" (click)="executeList()" class="btn btn-default">Search</button>
+  </div>
 </header>
 
 

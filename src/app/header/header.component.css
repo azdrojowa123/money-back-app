@@ -9,11 +9,6 @@
     font-size: 20px;
 }
 
-.header input{
-    float: right;
-    padding: 20px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-  }
+.border{
+    margin-top: 10px;
+}

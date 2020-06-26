@@ -11,6 +11,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    sessionStorage.clear();
   }
 
 }

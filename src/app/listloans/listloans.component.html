@@ -23,3 +23,20 @@
  </tbody>
 </table>
 </div>
+<div class="container">
+ <table class="table table-striped table-responsive-md btn-table  ">
+  <thead>
+    <tr>
+      <th>People you owe</th>
+      <th>How much</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of friends ">
+      <td>{{loan?.fromwho}}</td>
+      <td>{{loan?.amount}}</td>
+    </tr>
+  </tbody>
+ </table>
+
+</div>
