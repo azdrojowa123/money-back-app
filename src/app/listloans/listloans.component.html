@@ -7,14 +7,18 @@
      <th>For who</th>
      <th>Amount</th>
      <th>Date</th>
+     <th>Update</th>
+     <th>Delete</th>
    </tr>
  </thead>
  <tbody>
-   <tr *ngFor="let loan of loans">
+   <tr *ngFor="let loan of loans ">
      <td>{{loan?.fromwho}}</td>
      <td>{{loan?.forwho}}</td>
      <td>{{loan?.amount}}</td>
      <td>{{loan.targetDate | date | lowercase}}</td>
+     <td><button (click)="updateLoan(loan.id)" class="btn btn-succes">Update</button></td>
+     <td><button (click)="deleteLoan(loan.id)" class="btn btn-succes">Delete</button></td>
    </tr>
  </tbody>
 </table>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoansService } from '../data/loans.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,32 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  setname: boolean;
+  localStorage: any;
+  username:""
+
   constructor(
-    private route:ActivatedRoute
+    private router: Router,
+    private loanService :LoansService
   ) { }
 
-  ngOnInit() {
+  public sessionStorageItem(): boolean {
+    //localStorage.clear();
+    if (sessionStorage.getItem('setname') == null) {
+      return this.setname= false;
+    } else {
+      return this.setname = true;
+    };
   }
 
-}
+  ngOnInit() {
+    this.sessionStorageItem();
+  }
+
+  executeList(){
+    this.router.navigate(['loans',this.username])
+     
+  }
+
+  }
+

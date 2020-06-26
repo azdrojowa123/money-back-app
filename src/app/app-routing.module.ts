@@ -6,7 +6,7 @@ import { ListloansComponent } from './listloans/listloans.component';
 
 const routes: Routes = [
   {path:'',component:WelcomeComponent}, //canActivate, RouteGuardService
-  {path:'loans',component:ListloansComponent},
+  {path:'loans/:username',component:ListloansComponent},
 
 ];
 

@@ -1,0 +1,19 @@
+.header{
+    bottom:100;
+    width:100%;
+    padding: 14px;
+    font-weight: bold;
+    text-align: center;
+    background: #7bbdca;
+    color:white;
+    font-size: 20px;
+}
+
+.header input{
+    float: right;
+    padding: 20px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+  }

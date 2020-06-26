@@ -11,7 +11,9 @@ import { Loan } from '../listloans/listloans.component';
     private http: HttpClient
   ) { }
 
-  public retrieveAllLoans(){
-    return this.http.get<Loan[]>(`http://localhost:8088/loans`);
+  public retrieveAllLoans(username){
+    return this.http.get<Loan[]>(`http://localhost:8088/${username}/loans`);
   }
+
+
 }

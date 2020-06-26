@@ -1,8 +1,16 @@
+<div class="header">
+  <span class="text-muted">Welcome in money back App</span>
+</div>
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <ul class="navbar-nav">
-      <li><a  routerLink="/loans" class="nav-link">Loans</a></li>
+      <li><a *ngIf="this.sessionStorageItem()" routerLink="/loans" class="nav-link">Loans</a></li>
     </ul>
   </nav>
+
+  <input type="text" name="username"  [(ngModel)]="username" > 
+  <button  (click)="executeList()" class="btn btn-default">Search</button>
+
 </header>
+
 

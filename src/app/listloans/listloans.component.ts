@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoansService } from '../data/loans.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 export class Loan{
@@ -22,21 +22,29 @@ export class Loan{
 export class ListloansComponent implements OnInit {
 
   loans: Loan[]
-  
+  username="costam"
+  name="xd"
 
   constructor(
     public loanService:LoansService,
-    private router:Router
+    private router:ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.loanService.retrieveAllLoans().subscribe(
+    
+    this.username=this.router.snapshot.params['username']
+    sessionStorage.setItem('setname',this.username) 
+    this.refreshLoans(this.username);
+  }
+
+  refreshLoans(username){
+    this.loanService.retrieveAllLoans(username).subscribe(
       data => {
         this.loans = data;
         console.log(data);
+
       }
     )
+    //window.location.reload();
   }
-
-
 }
