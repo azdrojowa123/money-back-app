@@ -20,5 +20,15 @@ import { Loan } from '../listloans/listloans.component';
 
   }
 
+  public updateLoan(id,loan){
+    return this.http.put(
+                `http://localhost:8088/loans/${id}`
+                ,loan);
+  }
+
+  public retrieveLoan(id){
+    return this.http.get<Loan>(`http://localhost:8088/loans/${id}`)
+  }
+
 
 }

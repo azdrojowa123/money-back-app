@@ -28,7 +28,8 @@ export class ListloansComponent implements OnInit {
 
   constructor(
     public loanService:LoansService,
-    private router:ActivatedRoute
+    private router:ActivatedRoute,
+    private route:Router
   ) { }
 
   ngOnInit() {
@@ -51,6 +52,11 @@ export class ListloansComponent implements OnInit {
           this.friends = data;
           console.log(data);
         })
+    }
+
+    updateLoan(id){
+      console.log(`update  ${id}`);
+      this.route.navigate(['loan',id]);
     }
   }
 

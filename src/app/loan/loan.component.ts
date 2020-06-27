@@ -10,7 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoanComponent implements OnInit {
 
+  id:number
   loan:Loan
+  username:String
 
   constructor(
     private loanService:LoansService,
@@ -19,6 +21,30 @@ export class LoanComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.id=this.route.snapshot.params['id'];
+    this.username = sessionStorage.getItem('setname');
+    this.loan=new Loan(this.id,'','',23,new Date());
+
+
+    this.loanService.retrieveLoan(this.id)
+    .subscribe(
+      data=>{
+        this.loan=data
+      }
+        
+    )
+
   }
 
+  saveLoan(){
+
+    this.loanService.updateLoan(this.id,this.loan)
+        .subscribe(
+          data => {
+            console.log(data)
+            this.router.navigate(['loans',this.username])
+          }
+        )
+  
+}
 }

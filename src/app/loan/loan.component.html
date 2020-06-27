@@ -1,3 +1,33 @@
-<p>
-  loan works!
-</p>
+<h1>Loan</h1>
+<div class="container">
+
+  <div class="alert alert-warning" *ngIf="loanForm.dirty && loanForm.invalid">Enter valid values</div>
+  <div class="alert alert-warning" *ngIf="loanForm.dirty && targetDate.invalid">Enter valid Target Date</div>
+
+<form (ngSubmit)="!loanForm.invalid && saveLoan()" #loanForm="ngForm">
+  <fieldset class="form-group">
+      <label>From who</label> 
+    <input type="text" [(ngModel)]="loan.fromwho" class="form-control" name="fromwho" required="required">
+  </fieldset>
+
+  <fieldset class="form-group">
+    <label>For who</label> 
+  <input type="text" [(ngModel)]="loan.forwho" class="form-control" name="forho" required="required">
+</fieldset>
+
+<fieldset class="form-group">
+  <label>How much</label> 
+<input type="number" [(ngModel)]="loan.amount" class="form-control" name="amount" required="required">
+</fieldset>
+
+  <fieldset class="form-group">
+    <label>Target Date</label> 
+    <input type="date" #targetDate="ngModel"
+    [ngModel]="loan.targetDate | date:'yyyy-MM-dd' " 
+    (ngModelChange)="loan.targetDate = $event"
+    class="form-control" name="targetDate" required="required">
+  </fieldset>
+
+  <button type="submit" class="btn btn-succes" > Save</button>
+</form>
+</div>
