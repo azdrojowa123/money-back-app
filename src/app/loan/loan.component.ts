@@ -13,6 +13,7 @@ export class LoanComponent implements OnInit {
   id:number
   loan:Loan
   username:String
+  validSuccess:boolean=false
 
   constructor(
     private loanService:LoansService,
@@ -42,7 +43,8 @@ export class LoanComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data)
-            this.router.navigate(['loans',this.username])
+            this.validSuccess=true;
+            //this.router.navigate(['loans',this.username])
           }
         )
   

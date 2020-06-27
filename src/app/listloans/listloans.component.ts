@@ -56,6 +56,7 @@ export class ListloansComponent implements OnInit {
 
     updateLoan(id){
       console.log(`update  ${id}`);
+      
       this.route.navigate(['loan',id]);
     }
   }

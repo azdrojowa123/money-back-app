@@ -33,9 +33,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let loan of friends ">
-      <td>{{loan?.fromwho}}</td>
-      <td>{{loan?.amount}}</td>
+        <td>{{loan[0]}}</td>
+        <td>{{loan[1]}}</td>
     </tr>
+    
   </tbody>
  </table>
 

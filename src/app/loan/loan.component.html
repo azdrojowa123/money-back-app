@@ -1,6 +1,13 @@
 <h1>Loan</h1>
 <div class="container">
 
+  <p *ngIf="validSuccess" class="alert alert-succes alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> You updated loan.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </p>
+
   <div class="alert alert-warning" *ngIf="loanForm.dirty && loanForm.invalid">Enter valid values</div>
   <div class="alert alert-warning" *ngIf="loanForm.dirty && targetDate.invalid">Enter valid Target Date</div>
 

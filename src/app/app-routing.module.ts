@@ -8,7 +8,9 @@ import { LoanComponent } from './loan/loan.component';
 const routes: Routes = [
   {path:'',component:WelcomeComponent}, //canActivate, RouteGuardService
   {path:'loans/:username',component:ListloansComponent},
-  {path:'loan/:id',component:LoanComponent}
+  {path:'loan/:id',component:LoanComponent},
+  {path:'loans',component:ListloansComponent},
+
 
 ];
 

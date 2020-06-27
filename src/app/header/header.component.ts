@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   setname: boolean;
   localStorage: any;
-  username:""
+  username:string
 
   constructor(
     private router: Router,
@@ -35,6 +35,15 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['loans',this.username])
      
   }
+
+  executeListwithoutusername(){
+
+    this.username=sessionStorage.getItem('setname')
+    this.router.navigate(['loans',this.username])
+     
+  }
+
+
 
   }
 
