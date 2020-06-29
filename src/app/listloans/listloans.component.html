@@ -1,7 +1,10 @@
 
 <div class="container">
- <table class="table table-striped table-responsive-md btn-table  ">
- <thead>
+<div class="row justify-content-between">
+  <div class="col-ms">
+    <h3>Table for all loans with you</h3>
+ <table class="table table-hover table-responsive-md btn-table  ">
+ <thead class="thead-dark">
    <tr>
      <th>From who</th>
      <th>For who</th>
@@ -15,17 +18,19 @@
    <tr *ngFor="let loan of loans ">
      <td>{{loan?.fromwho}}</td>
      <td>{{loan?.forwho}}</td>
-     <td>{{loan?.amount}}</td>
-     <td>{{loan.targetDate | date | lowercase}}</td>
+     <td [ngClass]="{older: amountValidation(loan?.amount)} " >
+       {{loan?.amount}}</td>
+     <td> {{loan.targetDate | date }}</td>
      <td><button (click)="updateLoan(loan.id)" class="btn btn-succes">Update</button></td>
      <td><button (click)="deleteLoan(loan.id)" class="btn btn-succes">Delete</button></td>
    </tr>
  </tbody>
 </table>
 </div>
-<div class="container">
- <table class="table table-striped table-responsive-md btn-table  ">
-  <thead>
+  <div class="col-ms"> 
+    <h3>How much you owe</h3>
+ <table class="table table-striped table-responsive-md btn-table">
+  <thead class="thead-dark">
     <tr>
       <th>People you owe</th>
       <th>How much</th>
@@ -33,11 +38,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let loan of friends ">
-        <td>{{loan[0]}}</td>
         <td>{{loan[1]}}</td>
+        <td>{{loan[0]}}</td>
     </tr>
     
   </tbody>
  </table>
-
+</div>
 </div>

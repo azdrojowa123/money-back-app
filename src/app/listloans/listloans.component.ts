@@ -14,17 +14,32 @@ export class Loan{
   ){}
 }
 
+export class User{
+  constructor(
+    public id:number,
+    public name:string,
+    public surname:string,
+    public email:string,
+    public number:string
+
+  ){}
+}
+
 @Component({
   selector: 'app-listloans',
   templateUrl: './listloans.component.html',
-  styleUrls: ['./listloans.component.css']
+  styleUrls: ['./listloans.component.css'],
+  styles: [`
+      .older{
+        color:red
+      }`]
 })
 export class ListloansComponent implements OnInit {
 
   loans: Loan[]
   friends: Loan[]
   username="costam"
-  name="xd"
+ 
 
   constructor(
     public loanService:LoansService,
@@ -59,6 +74,17 @@ export class ListloansComponent implements OnInit {
       
       this.route.navigate(['loan',id]);
     }
+
+    amountValidation(amount:number) :boolean {
+      
+      if (150<amount){
+        return true; //data jest starsza niż miesiąc
+      }else{
+        return false;
+      }
+
+    }
+
   }
 
   

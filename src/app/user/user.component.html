@@ -1,0 +1,35 @@
+<p *ngIf="validSuccess" class="alert alert-succes alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> You updated loan.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</p>
+
+<div class="container">
+
+<div class="alert alert-warning" *ngIf="loanForm.dirty && loanForm.invalid">Enter valid values</div>
+
+<form (ngSubmit)="!loanForm.invalid && saveLoan()" #loanForm="ngForm">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" [(ngModel)]="user.name" class="form-control" name="name" placeholder="Name">
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" [(ngModel)]="user.surname" class="form-control" name="surname" placeholder="Surname">
+    </div>
+  </div>
+
+<div class="form-group">
+  <input type="text" [(ngModel)]="user.email" class="form-control" name="email" required="required" placeholder="email">
+</div>
+
+<div class="form-row">
+  <input type="text" [(ngModel)]="user.number" class="form-control" name="amount" required="required" placeholder="Telephone number">
+</div>
+
+
+
+  <button type="submit" class="btn btn-primary" > Save</button>
+</form>
+</div>

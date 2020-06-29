@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoansService } from '../data/loans.service';
+import { User } from '../listloans/listloans.component';
+
+
+
 
 @Component({
   selector: 'app-header',
@@ -12,6 +16,7 @@ export class HeaderComponent implements OnInit {
   setname: boolean;
   localStorage: any;
   username:string
+  users: User []
 
   constructor(
     private router: Router,
@@ -19,7 +24,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   public sessionStorageItem(): boolean {
-    //localStorage.clear();
     if (sessionStorage.getItem('setname') == null) {
       return this.setname= false;
     } else {
@@ -29,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.sessionStorageItem();
+    this.getUsers();
   }
 
   executeList(){
@@ -43,6 +48,21 @@ export class HeaderComponent implements OnInit {
      
   }
 
+  getUsers(){
+
+      this.loanService.retrieveUsers().subscribe(
+        data => {
+          this.users = data;
+          console.log(data);
+  
+        })
+    
+  }
+
+  addUser(){
+    
+    this.router.navigate(['user']);
+  }
 
 
   }

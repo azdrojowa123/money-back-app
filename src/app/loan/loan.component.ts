@@ -44,7 +44,6 @@ export class LoanComponent implements OnInit {
           data => {
             console.log(data)
             this.validSuccess=true;
-            //this.router.navigate(['loans',this.username])
           }
         )
   

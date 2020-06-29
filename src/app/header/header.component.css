@@ -1,14 +1,24 @@
 .header{
     bottom:100;
     width:100%;
-    padding: 14px;
+    padding: 18px;
     font-weight: bold;
     text-align: center;
     background: #7bbdca;
     color:white;
-    font-size: 20px;
+    font-size: 15px;
 }
 
-.border{
-    margin-top: 10px;
+.top-buffer { 
+    margin-top:40px; 
 }
+
+.button-buffer{
+    margin-top:10px; 
+}
+
+.cellContainerr {
+    /*width: 25%;
+    float: left;*/
+    margin-right: 50px;
+  }
