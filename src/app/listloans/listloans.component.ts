@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { LoansService } from '../data/loans.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,8 @@ export class Loan{
     public fromwho:string,
     public forwho:string,
     public amount:number,
-    public targetDate:Date
+    public targetDate:Date,
+    public description:string
 
   ){}
 }
@@ -20,7 +21,7 @@ export class User{
     public name:string,
     public surname:string,
     public email:string,
-    public number:string
+    public telnumber:string
 
   ){}
 }
@@ -36,8 +37,11 @@ export class User{
 })
 export class ListloansComponent implements OnInit {
 
+  selectedLoan:Loan;
   loans: Loan[]
   friends: Loan[]
+  descriptionInfo:boolean = false;
+  LoanToDescription:Loan;
   username="costam"
  
 
@@ -83,6 +87,17 @@ export class ListloansComponent implements OnInit {
         return false;
       }
 
+    }
+
+    getRow(loan:Loan){
+      console.log(loan.id);
+      this.LoanToDescription=loan;
+      this.descriptionInfo = true;
+      
+    }
+
+    deleteDescription(){
+      this.descriptionInfo=false;
     }
 
   }

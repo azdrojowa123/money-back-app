@@ -13,10 +13,12 @@ import { User } from '../listloans/listloans.component';
 })
 export class HeaderComponent implements OnInit {
 
+  validSuccess: boolean = false;
   setname: boolean;
   localStorage: any;
   username:string
-  users: User []
+  users: User [];
+  addNewUser: boolean;
 
   constructor(
     private router: Router,
@@ -31,14 +33,24 @@ export class HeaderComponent implements OnInit {
     };
   }
 
+  
+  public session2():boolean{
+    if(sessionStorage.getItem('addNewUser') == null){
+      return  true;
+    }else{
+      return  false;
+    }
+  }
+
   ngOnInit() {
     this.sessionStorageItem();
     this.getUsers();
+    this.session2();
+   
   }
 
   executeList(){
     this.router.navigate(['loans',this.username])
-     
   }
 
   executeListwithoutusername(){
@@ -60,7 +72,7 @@ export class HeaderComponent implements OnInit {
   }
 
   addUser(){
-    
+    sessionStorage.setItem('addNewUser','0');
     this.router.navigate(['user']);
   }
 

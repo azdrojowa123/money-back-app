@@ -15,9 +15,13 @@
         </li>
       </div>
     </li>
+    <li class="nav-item">
+      <a class="navbar-toggler " *ngIf="this.sessionStorageItem()" (click)="executeListwithoutusername()" class="nav-link"  role="button">Your money summary </a>
+    </li>
   </ul>
   </div>
 </nav>
+
 <div *ngIf="this.sessionStorageItem()==false" class="container top-buffer">
   <h6 class="text-center">Please select the name to run this application </h6>
   <div  class="text-center" class="form-group">
@@ -30,6 +34,6 @@
   </div>
 </div>
 
-<h6 class="text-center" *ngIf="this.sessionStorageItem()==false" ><em>If your name is not here and you want to be in please click this button </em> <button class="btn btn-default" (click)="addUser()" >Add</button> </h6>
+<h6 class="text-center" *ngIf="this.sessionStorageItem()==false && this.session2()==true"><em>If your name is not here and you want to be in please click this button </em> <button class="btn btn-default" (click)="addUser()" >Add</button> </h6>
 
 

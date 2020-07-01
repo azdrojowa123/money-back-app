@@ -1,9 +1,10 @@
 
-<div class="container">
-<div class="row justify-content-between">
-  <div class="col-ms">
-    <h3>Table for all loans with you</h3>
- <table class="table table-hover table-responsive-md btn-table  ">
+<div class="container list-loan-style">
+  <div class="list-2">
+<div class="row" >
+  <div class="col-md-8 align-self-center">
+    <h6><em>If you want to see description of loan, please press the appropriate table row</em></h6>
+ <table class="table table-hover table-responsive-md btn-table">
  <thead class="thead-dark">
    <tr>
      <th>From who</th>
@@ -15,7 +16,7 @@
    </tr>
  </thead>
  <tbody>
-   <tr *ngFor="let loan of loans ">
+   <tr *ngFor="let loan of loans " (click)="getRow(loan)" >
      <td>{{loan?.fromwho}}</td>
      <td>{{loan?.forwho}}</td>
      <td [ngClass]="{older: amountValidation(loan?.amount)} " >
@@ -27,7 +28,21 @@
  </tbody>
 </table>
 </div>
-  <div class="col-ms"> 
+<div *ngIf="descriptionInfo" class="col-md-4 align-self-center">
+  <div class="alert alert-dark alert-dismissible fade show">
+    <h4 class="aler-heading">Loan description</h4>
+    <hr>
+    <p class="mb-0">{{LoanToDescription.description}}</p>
+    <button type="button" class="close" data-dismiss="alert" (click)="deleteDescription()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+ <!-- <div class="col-ms"> 
     <h3>How much you owe</h3>
  <table class="table table-striped table-responsive-md btn-table">
   <thead class="thead-dark">
@@ -40,9 +55,9 @@
     <tr *ngFor="let loan of friends ">
         <td>{{loan[1]}}</td>
         <td>{{loan[0]}}</td>
-    </tr>
-    
+    </tr> 
   </tbody>
  </table>
-</div>
-</div>
+</div> -->
+
+

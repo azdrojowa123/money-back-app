@@ -24,19 +24,17 @@ export class LoanComponent implements OnInit {
   ngOnInit() {
     this.id=this.route.snapshot.params['id'];
     this.username = sessionStorage.getItem('setname');
-    this.loan=new Loan(this.id,'','',23,new Date());
+    this.loan=new Loan(this.id,'','',23,new Date(),'');
 
 
     this.loanService.retrieveLoan(this.id)
     .subscribe(
       data=>{
         this.loan=data
-      }
-        
+      }   
     )
-
   }
-
+  
   saveLoan(){
 
     this.loanService.updateLoan(this.id,this.loan)
