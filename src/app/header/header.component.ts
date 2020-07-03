@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoansService } from '../data/loans.service';
 import { User } from '../listloans/listloans.component';
@@ -12,6 +12,8 @@ import { User } from '../listloans/listloans.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  @Output() OnSelected = new EventEmitter<string>();
 
   validSuccess: boolean = false;
   setname: boolean;
@@ -79,6 +81,10 @@ export class HeaderComponent implements OnInit {
   executeSummary(){
     this.username=sessionStorage.getItem('setname')
     this.router.navigate(['friends',this.username])
+  }
+
+  onSelect(onSelected:string){
+    this.OnSelected.emit('events');
   }
 
 

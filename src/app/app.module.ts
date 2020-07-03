@@ -12,6 +12,7 @@ import { ListloansComponent } from './listloans/listloans.component';
 import { LoanComponent } from './loan/loan.component';
 import { UserComponent } from './user/user.component';
 import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
     ListloansComponent,
     LoanComponent,
     UserComponent,
-    LoanSummaryComponent
+    LoanSummaryComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

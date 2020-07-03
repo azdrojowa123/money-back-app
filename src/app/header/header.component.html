@@ -15,6 +15,9 @@
     <li class="nav-item">
       <a class="navbar-toggler pointer " style="cursor: pointer;" *ngIf="this.sessionStorageItem()" (click)="executeSummary()" class="nav-link"  role="button">Your money summary </a>
     </li>
+    <li class="nav-item">
+      <a class="navbar-toggler pointer " style="cursor: pointer;" *ngIf="this.sessionStorageItem()" (click)="onSelect('events')" class="nav-link"  role="button">Your upcoming events</a>
+    </li>
   </ul>
   <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
     <li class="nav-item">
