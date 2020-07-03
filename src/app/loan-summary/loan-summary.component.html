@@ -1,0 +1,17 @@
+<div class="container">
+<h4>How much you owe</h4>
+ <table class="table table-striped table-responsive-md btn-table">
+  <thead class="thead-dark">
+    <tr>
+      <th>People you owe</th>
+      <th>How much</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of UserLoans">
+        <td>{{loan[1]}}</td>
+        <td>{{loan[0]}}</td>
+    </tr> 
+  </tbody>
+ </table>
+</div>

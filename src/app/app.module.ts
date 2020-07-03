@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { ListloansComponent } from './listloans/listloans.component';
 import { LoanComponent } from './loan/loan.component';
 import { UserComponent } from './user/user.component';
+import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserComponent } from './user/user.component';
     HeaderComponent,
     ListloansComponent,
     LoanComponent,
-    UserComponent
+    UserComponent,
+    LoanSummaryComponent
   ],
   imports: [
     BrowserModule,

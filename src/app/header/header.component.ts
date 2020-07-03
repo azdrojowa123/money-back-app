@@ -76,6 +76,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['user']);
   }
 
+  executeSummary(){
+    this.username=sessionStorage.getItem('setname')
+    this.router.navigate(['friends',this.username])
+  }
+
 
   }
 

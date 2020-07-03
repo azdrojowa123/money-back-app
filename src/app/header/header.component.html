@@ -4,9 +4,6 @@
 <nav *ngIf="this.sessionStorageItem()" class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="navbar-toggler " *ngIf="this.sessionStorageItem()" (click)="executeListwithoutusername()" class="nav-link"  role="button">Loans</a>
-    </li>
     <li class="nav-item-dropdown" >
       <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" (click)="getUsers()">Change User</a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -16,9 +13,15 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="navbar-toggler " *ngIf="this.sessionStorageItem()" (click)="executeListwithoutusername()" class="nav-link"  role="button">Your money summary </a>
+      <a class="navbar-toggler pointer " style="cursor: pointer;" *ngIf="this.sessionStorageItem()" (click)="executeSummary()" class="nav-link"  role="button">Your money summary </a>
     </li>
   </ul>
+  <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+    <li class="nav-item">
+      <a class="navbar-toggler " *ngIf="this.sessionStorageItem()" (click)="executeListwithoutusername()" class="nav-link"  role="button">Loans</a>
+    </li>
+  </ul>
+  
   </div>
 </nav>
 
