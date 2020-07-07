@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { LoansService } from '../data/loans.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoggingService } from '../data/login.service';
 
 
 export class Loan{
@@ -48,7 +49,8 @@ export class ListloansComponent implements OnInit {
   constructor(
     public loanService:LoansService,
     private router:ActivatedRoute,
-    private route:Router
+    private route:Router,
+    private loggingservice: LoggingService
   ) { }
 
   ngOnInit() {
@@ -74,7 +76,8 @@ export class ListloansComponent implements OnInit {
     }
 
     updateLoan(id){
-      console.log(`update  ${id}`);
+      //console.log(`update  ${id}`);
+      this.loggingservice.logUpdateLoan(id);
       
       this.route.navigate(['loan',id]);
     }

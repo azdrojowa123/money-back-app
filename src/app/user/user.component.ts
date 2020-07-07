@@ -4,6 +4,7 @@ import { UserService } from '../data/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../listloans/listloans.component';
 import { flatten } from '@angular/core/src/render3/util';
+import { LoggingService } from '../data/login.service';
 
 @Component({
   selector: 'app-user',
@@ -18,7 +19,8 @@ export class UserComponent implements OnInit {
   constructor(
     private userService:UserService,
     private route:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private loggingservice:LoggingService
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,8 @@ export class UserComponent implements OnInit {
     this.userService.addUser(this.user)
     .subscribe(
       data => {
-        console.log(data)
+        //console.log(data)
+        this.loggingservice.logUserNew(this.user.name);
         sessionStorage.setItem('addNewUser','true');
         this.validSuccess=true;
         window.location.reload();
