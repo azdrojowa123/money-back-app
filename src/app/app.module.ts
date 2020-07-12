@@ -13,6 +13,9 @@ import { LoanComponent } from './loan/loan.component';
 import { UserComponent } from './user/user.component';
 import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
 import { EventsComponent } from './events/events.component';
+import { LoggingService } from './data/login.service';
+import { NewHeaderComponent } from './new-header/new-header.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { EventsComponent } from './events/events.component';
     LoanComponent,
     UserComponent,
     LoanSummaryComponent,
-    EventsComponent
+    EventsComponent,
+    NewHeaderComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import { EventsComponent } from './events/events.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

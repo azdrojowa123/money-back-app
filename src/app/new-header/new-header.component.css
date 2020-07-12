@@ -1,0 +1,22 @@
+.header{
+    bottom:100;
+    width:100%;
+    padding: 18px;
+    font-weight: bold;
+    text-align: center;
+    background: #7bbdca;
+    color:white;
+    font-size: 15px;
+}
+
+.top-buffer { 
+    margin-top:40px; 
+}
+
+.button-buffer{
+    margin-top:10px; 
+}
+
+.cellContainerr {
+    margin-right: 50px;
+  }

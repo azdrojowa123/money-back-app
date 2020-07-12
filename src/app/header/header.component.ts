@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   username:string
   users: User [];
   addNewUser: boolean;
+  tmp : boolean = false;
 
   constructor(
     private router: Router,
@@ -75,7 +76,8 @@ export class HeaderComponent implements OnInit {
 
   addUser(){
     sessionStorage.setItem('addNewUser','0');
-    this.router.navigate(['user']);
+    this.tmp=true
+    //this.router.navigate(['user']);
   }
 
   executeSummary(){
