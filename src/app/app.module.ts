@@ -15,6 +15,7 @@ import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
 import { EventsComponent } from './events/events.component';
 import { LoggingService } from './data/login.service';
 import { NewHeaderComponent } from './new-header/new-header.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NewHeaderComponent } from './new-header/new-header.component';
     LoanSummaryComponent,
     EventsComponent,
     NewHeaderComponent,
+    NotFoundComponent,
    
   ],
   imports: [

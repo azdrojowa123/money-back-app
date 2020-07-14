@@ -6,6 +6,7 @@ import { LoanComponent } from './loan/loan.component';
 import { UserComponent } from './user/user.component';
 import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
 import { HeaderComponent } from './header/header.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -15,7 +16,10 @@ const routes: Routes = [
   {path:'loan/:id',component:LoanComponent},
   {path:'loans',component:ListloansComponent},
   {path:'user',component:UserComponent},
-  {path:'friends/:username',component:LoanSummaryComponent}
+  {path:'friends/:username',component:LoanSummaryComponent}, 
+
+  {path:'not-found', component:NotFoundComponent},
+  {path:'**', redirectTo:'/not-found'}
 
 
 ];

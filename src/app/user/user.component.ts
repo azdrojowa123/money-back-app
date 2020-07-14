@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
 
   validSuccess:boolean = false;
   user : User
+  savedUser:boolean = false;
 
   constructor(
     private userService:UserService,
@@ -34,7 +35,8 @@ export class UserComponent implements OnInit {
 
   saveUser(){
 
-    this.userService.addUser(this.user)
+    if(window.confirm('Are you sure to add this new user ? ')){
+      this.userService.addUser(this.user)
     .subscribe(
       data => {
         //console.log(data)
@@ -44,6 +46,8 @@ export class UserComponent implements OnInit {
         window.location.reload();
       }
     )
+    }
+    
 
   }
 }
