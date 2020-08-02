@@ -82,6 +82,10 @@ export class ListloansComponent implements OnInit {
       this.route.navigate(['loan',id]);
     }
 
+    deleteLoan(id){
+      
+    }
+
     amountValidation(amount:number) :boolean {
       
       if (150<amount){

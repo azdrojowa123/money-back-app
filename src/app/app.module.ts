@@ -16,6 +16,9 @@ import { EventsComponent } from './events/events.component';
 import { LoggingService } from './data/login.service';
 import { NewHeaderComponent } from './new-header/new-header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { UserValidationComponent } from './user/user-validation/user-validation.component';
+import { ValidationDirective } from './user/validation.directive';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EventsComponent,
     NewHeaderComponent,
     NotFoundComponent,
+    ErrorPageComponent,
+    UserValidationComponent,
+    ValidationDirective,
    
   ],
   imports: [

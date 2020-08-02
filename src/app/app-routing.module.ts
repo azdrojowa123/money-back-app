@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 import { LoanSummaryComponent } from './loan-summary/loan-summary.component';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 
@@ -18,7 +19,10 @@ const routes: Routes = [
   {path:'user',component:UserComponent},
   {path:'friends/:username',component:LoanSummaryComponent}, 
 
-  {path:'not-found', component:NotFoundComponent},
+  //{path:'not-found', component:NotFoundComponent},
+  {path:'not-found', component:ErrorPageComponent, data: {message: 'Page Not Found'}},
+
+  
   {path:'**', redirectTo:'/not-found'}
 
 
