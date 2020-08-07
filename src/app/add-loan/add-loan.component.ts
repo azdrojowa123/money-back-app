@@ -12,6 +12,7 @@ export class AddLoanComponent implements OnInit {
 
   users : User[]
   form:FormGroup
+  username: string
 
 
   get usersArray() {
@@ -25,8 +26,10 @@ export class AddLoanComponent implements OnInit {
       amount:['',[
         Validators.required,
         Validators.pattern("^[0-9]*$"),
-      ] 
-      ]
+      ]],
+      description:['',[
+        Validators.required
+      ]]
     });
 
     this.users.forEach(() => this.usersArray.push(new FormControl(false)));
@@ -37,6 +40,7 @@ export class AddLoanComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.username=sessionStorage.getItem('setname')
   }
 
   getUsers(){
@@ -57,8 +61,10 @@ export class AddLoanComponent implements OnInit {
     console.log(selectedUser);
 
     const amountMoney = this.form.value.amount;
+    const description = this.form.value.description;
 
-    this.loanService.addLoan(selectedUser,amountMoney);
+    this.loanService.addLoan(selectedUser,amountMoney,this.username,description);
+  
 
   }
 

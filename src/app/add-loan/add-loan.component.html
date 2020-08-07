@@ -20,6 +20,13 @@
     </label>
   </div>
   <div class="col">
+    <label>Description: </label>
+    <input type="text" class="form-control" formControlName="description">
+    <div *ngIf="(form.controls.description.touched) && form.controls.description.errors.required">
+      Description is required.
+    </div>
+  </div>
+  <div class="col">
     <button class="btn btn-primary">Submit</button>
   </div>
 </form>

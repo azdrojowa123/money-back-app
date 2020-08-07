@@ -35,10 +35,10 @@ import { User } from '../listloans/listloans.component';
     return this.http.get<User[]>(`http://localhost:8088/users`)
   }
 
-  public addLoan(listUser, amount){
+  public addLoan(listUser, amount, fromWho, description){
     return this.http.put('`http://localhost:8088/addloan`',
-                listUser,amount);  
-  }
+                {listUser,amount,fromWho,description})
+  };
 
 
 }
