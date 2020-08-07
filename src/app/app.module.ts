@@ -1,4 +1,4 @@
-import { FormsModule} from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder, FormArray, FormControl, ReactiveFormsModule} from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,8 +17,8 @@ import { LoggingService } from './data/login.service';
 import { NewHeaderComponent } from './new-header/new-header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { UserValidationComponent } from './user/user-validation/user-validation.component';
 import { ValidationDirective } from './user/validation.directive';
+import { AddLoanComponent } from './add-loan/add-loan.component';
 
 
 @NgModule({
@@ -35,15 +35,20 @@ import { ValidationDirective } from './user/validation.directive';
     NewHeaderComponent,
     NotFoundComponent,
     ErrorPageComponent,
-    UserValidationComponent,
     ValidationDirective,
+    AddLoanComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormGroup,
+    FormBuilder,
+    FormArray,
+    FormControl,
+    ReactiveFormsModule
   ],
   providers: [LoggingService],
   bootstrap: [AppComponent]

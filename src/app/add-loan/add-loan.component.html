@@ -1,0 +1,26 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="col">
+    <label>Please select users to whom you want to add debt</label>
+      <label formArrayName="users" *ngFor="let user of usersArray.controls; let i=index">
+        <input type="checkbox" [formControlName]="i">
+        {{users[i].name}}
+      </label>
+  </div>
+  <div class="col">
+    <label>Amount: </label>
+    <label type="text" class="form-control" >
+      <input type="text" formControlName="amount" >
+      <div *ngIf="(form.controls.amount.touched) && form.controls.amount.errors.required">
+        Amount is required.
+      </div>
+      <div *ngIf="form.controls.amount.errors.pattern">
+        You need to enter a number
+      </div>
+    </label>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</form>
+</div>
