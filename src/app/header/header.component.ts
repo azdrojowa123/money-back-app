@@ -89,6 +89,10 @@ export class HeaderComponent implements OnInit {
     this.OnSelected.emit('events');
   }
 
+  addLoan(){
+    this.router.navigate(['addLoan']);
+  }
+
 
   }
 

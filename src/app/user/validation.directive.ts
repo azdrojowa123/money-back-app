@@ -9,43 +9,39 @@ import { User } from '../listloans/listloans.component';
     {provide: NG_VALIDATORS, useExisting: ValidationDirective, multi:true}
   ]
 })
-export class ValidationDirective implements Validator, OnInit {
+export class ValidationDirective implements Validator {
   
-  static loanService: any;
+  activeUser2: User[];
+  static activeUser: User[];
+  validator: ValidatorFn
 
-  constructor(
-    private loanService:LoansService
-  ){}
-
-  ngOnInit(): void {
-    this.loanService = this.loanService
-    
+  constructor(private loanService:LoansService){
+    this.validator= validateUser(loanService);
   }
 
-  validate(control: FormControl): ValidationErrors {
-    return ValidationDirective.validateUser(control);
+  validate(control:FormControl){
+    return this.validator(control);
   }
- 
+}
 
-  
-
-
-
-static validateUser(control:FormControl) : ValidationErrors | null {
+  function validateUser(loanService:LoansService) : ValidatorFn{
   
   let activeUser: User[];
 
-  this.loanService.retrieveUsers().subscribe(res => {
-    activeUser = res;
+  loanService.retrieveUsers().subscribe(data => {
+    activeUser = data;
+    console.log(data);
   });
 
-  for(var i of activeUser){
-    if(i.name == control.value){
-      return {userinfo : 'User with this name is currently avaible'};
+  return (control:AbstractControl) => {
+    for(var i of activeUser){
+      if(i.name == control.value){
+        return {userinfo : 'User with this name is currently avaible'};
+      }
     }
+    return null;
   }
-  return null;
-}
+ 
 
 }
 

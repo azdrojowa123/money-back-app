@@ -10,8 +10,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn, Validators
 })
 export class AddLoanComponent implements OnInit {
 
-  users : User[]
-  form:FormGroup
+  users : User[] =[]
+  form: FormGroup
   username: string
 
 
@@ -21,8 +21,9 @@ export class AddLoanComponent implements OnInit {
 
 
   constructor(private loanService: LoansService, private fB: FormBuilder) {
+
     this.form = this.fB.group({
-      listUsers:new FormArray([]),
+      listUsers:this.builCheckBoxes(),
       amount:['',[
         Validators.required,
         Validators.pattern("^[0-9]*$"),
@@ -32,8 +33,26 @@ export class AddLoanComponent implements OnInit {
       ]]
     });
 
-    this.users.forEach(() => this.usersArray.push(new FormControl(false)));
-   
+    this.addBoxes();
+  }
+
+  public addBoxes(){
+    this.users.forEach((s) => this.usersArray.push(new FormControl(false)));
+  }
+
+  public builCheckBoxes(){
+
+    this.loanService.retrieveUsers().subscribe(
+      data => {
+        this.users = data;
+        console.log(data);
+
+      })
+
+    const temp = this.users.forEach( u => {
+      return this.fB.control(new FormControl(false));
+    })
+    return temp;
   }
 
  

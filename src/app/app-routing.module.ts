@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { ListloansComponent } from './listloans/listloans.component';
 import { LoanComponent } from './loan/loan.component';
 import { UserComponent } from './user/user.component';
@@ -9,11 +8,13 @@ import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddLoanComponent } from './add-loan/add-loan.component';
+import { AppComponent } from './app.component';
+import { NewHeaderComponent } from './new-header/new-header.component';
 
 
 
 const routes: Routes = [
-  {path:'',component:HeaderComponent}, 
+  {path:'',component:NewHeaderComponent},
   {path:'loans/:username',component:ListloansComponent},
   {path:'loan/:id',component:LoanComponent},
   {path:'loans',component:ListloansComponent},
@@ -22,8 +23,6 @@ const routes: Routes = [
   {path:'addLoan',component:AddLoanComponent},
 
 
-
-  //{path:'not-found', component:NotFoundComponent},
   {path:'not-found', component:ErrorPageComponent, data: {message: 'Page Not Found'}},
 
   

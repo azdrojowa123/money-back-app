@@ -1,4 +1,7 @@
-<nav *ngIf="this.sessionStorageItem()" class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="header">
+  <span class="text-strong">Welcome in money back App</span>
+</div>
+<nav  class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav">
     <li class="nav-item-dropdown" >
@@ -15,6 +18,9 @@
     <li class="nav-item">
       <a class="navbar-toggler pointer " style="cursor: pointer;" *ngIf="this.sessionStorageItem()" (click)="onSelect('events')" class="nav-link"  role="button">Your upcoming events</a>
     </li>
+    <li class="nav-item">
+      <a class="navbar-toggler pointer " style="cursor: pointer;" *ngIf="this.sessionStorageItem()" (click)="addLoan()" class="nav-link"  role="button">Add Loan</a>
+    </li>
   </ul>
   <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
     <li class="nav-item">
@@ -25,7 +31,7 @@
   </div>
 </nav>
 
-<div *ngIf="this.sessionStorageItem()==false" class="container top-buffer">
+<!-- <div *ngIf="this.sessionStorageItem()==false" class="container top-buffer">
   <h6 class="text-center">Please select the name to run this application </h6>
   <div  class="text-center" class="form-group">
     <select  class="form-control" [(ngModel)]="username" name="username"> 
@@ -37,10 +43,10 @@
   </div>
 </div>
 
-<<!--h6 class="text-center" *ngIf="this.sessionStorageItem()==false && this.session2()==true"><em>If your name is not here and you want to be in please click this button </em> <button class="btn btn-default" (click)="addUser()" >Add</button> </h6> -->
-<div *ngIf = "this.sessionStorageItem()==false && this.session2() === true" >
+h6 class="text-center" *ngIf="this.sessionStorageItem()==false && this.session2()==true"><em>If your name is not here and you want to be in please click this button </em> <button class="btn btn-default" (click)="addUser()" >Add</button> </h6> -->
+<!-- <div *ngIf = "this.sessionStorageItem()==false && this.session2() === true" >
   <h6 class="text-center"><em>If your name is not here and you want to be in please click this button </em> <button class="btn btn-default" (click)="addUser()" >Add</button> </h6>
 </div>
-<app-user *ngIf = "tmp"></app-user>
+<app-user *ngIf = "tmp"></app-user> --> 
 
 
