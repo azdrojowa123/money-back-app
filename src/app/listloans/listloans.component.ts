@@ -27,6 +27,16 @@ export class User{
   ){}
 }
 
+export class NewLoanInfo{
+  constructor(
+    public listuser:User[],
+    public amount:string,
+    public fromWho:string,
+    public description:string
+
+  ){}
+}
+
 @Component({
   selector: 'app-listloans',
   templateUrl: './listloans.component.html',
@@ -76,9 +86,7 @@ export class ListloansComponent implements OnInit {
     }
 
     updateLoan(id){
-      //console.log(`update  ${id}`);
       this.loggingservice.logUpdateLoan(id);
-      
       this.route.navigate(['loan',id]);
     }
 

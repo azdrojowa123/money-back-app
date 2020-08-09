@@ -1,34 +1,51 @@
 <app-header></app-header>
+
+<p *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Success!</strong> You successful added a new loan for custom users
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</p>
+
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="submit()">
-  <div class="col">
-    <label>Please select users to whom you want to add debt</label>
-      <label formArrayName="users" *ngFor="let user of usersArray.controls; let i=index">
-        <input type="checkbox" [formControlName]="i">
-        {{users[i].name}}
+  <div class="form-row">
+    <div class="form-group col">
+      <label>Please select users to whom you want to add debt</label>
+        <div class="flex-container" formArrayName="listUsers" *ngFor="let user of  usersArrayNew.controls; let i=index">
+          <input type="checkbox" [formControlName]="i">
+          {{users[i].name}}
+        </div>
+      </div>
+      
+    
+    <div class="form-group col">
+      <label>Amount: </label>
+      <label type="text" class="form-control" >
+        <input type="text" formControlName="amount" >
+        <div *ngIf="(form.controls.amount.touched) && form.controls.amount.errors?.required">
+          Amount is required.
+        </div>
+        <div *ngIf="form.controls.amount.errors?.pattern">
+          You need to enter a number
+        </div>
       </label>
-  </div>
-  <div class="col">
-    <label>Amount: </label>
-    <label type="text" class="form-control" >
-      <input type="text" formControlName="amount" >
-      <div *ngIf="(form.controls.amount.touched) && form.controls.amount.errors.required">
-        Amount is required.
+    </div>
+    <div class="form-group col">
+      <label>Description: </label>
+      <input type="text" class="form-control" formControlName="description">
+      <div *ngIf="(form.controls.description.touched) && form.controls.description.errors?.required">
+        Description is required.
       </div>
-      <div *ngIf="form.controls.amount.errors?.pattern">
-        You need to enter a number
-      </div>
-    </label>
-  </div>
-  <div class="col">
-    <label>Description: </label>
-    <input type="text" class="form-control" formControlName="description">
-    <div *ngIf="(form.controls.description.touched) && form.controls.description.errors.required">
-      Description is required.
+    </div>
+  </div> 
+  <div class="form-row">
+    <div class="form-group col">
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </div>
-  <div class="col">
-    <button class="btn btn-primary">Submit</button>
+  </form>
   </div>
-</form>
-</div>
+
+
+

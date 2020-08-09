@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Loan } from '../listloans/listloans.component';
+import { Loan, NewLoanInfo } from '../listloans/listloans.component';
 import { User } from '../listloans/listloans.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +36,11 @@ import { User } from '../listloans/listloans.component';
     return this.http.get<User[]>(`http://localhost:8088/users`)
   }
 
-  public addLoan(listUser, amount, fromWho, description){
-    return this.http.put('`http://localhost:8088/addloan`',
-                {listUser,amount,fromWho,description})
+
+  public addLoan(newLoan){
+    
+    return this.http.post(`http://localhost:8088/addloan`,
+                newLoan)
   };
 
 
