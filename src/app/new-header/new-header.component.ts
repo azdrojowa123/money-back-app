@@ -23,28 +23,10 @@ export class NewHeaderComponent implements OnInit {
     private router: Router,
     private loanService :LoansService
   ) { }
-
-  public sessionStorageItem(): boolean {
-    if (sessionStorage.getItem('setname') == null) {
-      return this.setname= false;
-    } else {
-      return this.setname = true;
-    };
-  }
-
   
-  public session2():boolean{
-    if(sessionStorage.getItem('addNewUser') == null){
-      return  true;
-    }else{
-      return  false;
-    }
-  }
 
   ngOnInit() {
-    this.sessionStorageItem();
     this.getUsers();
-    this.session2();
     this.tmp = false;
    
   }
@@ -53,12 +35,7 @@ export class NewHeaderComponent implements OnInit {
     this.router.navigate(['loans',this.username])
   }
 
-  executeListwithoutusername(){
 
-    this.username=sessionStorage.getItem('setname')
-    this.router.navigate(['loans',this.username])
-     
-  }
 
   getUsers(){
 
@@ -74,12 +51,7 @@ export class NewHeaderComponent implements OnInit {
   addUser(){
     sessionStorage.setItem('addNewUser','0');
     this.tmp=true
-    //this.router.navigate(['user']);
-  }
-
-  executeSummary(){
-    this.username=sessionStorage.getItem('setname')
-    this.router.navigate(['friends',this.username])
+    
   }
 
   onSelect(onSelected:string){

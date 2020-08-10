@@ -15,7 +15,7 @@ import { NewHeaderComponent } from './new-header/new-header.component';
 
 const routes: Routes = [
   {path:'',component:NewHeaderComponent},
-  {path:'loans/:username',component:ListloansComponent},
+  {path:'loans/:username',component:ListloansComponent, runGuardsAndResolvers: 'always' },
   {path:'loan/:id',component:LoanComponent},
   {path:'loans',component:ListloansComponent},
   {path:'user',component:UserComponent},
@@ -32,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation:'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

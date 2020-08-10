@@ -15,23 +15,7 @@ export class AddLoanComponent implements OnInit {
   username: string
   success: boolean
 
-  constructor(public loanService: LoansService, private fB: FormBuilder) {
-      
-        this.form = this.fB.group({
-          listUsers:new FormArray([]),
-          amount:['',[
-            Validators.required,
-            Validators.pattern("^[0-9]*$"),
-          ]],
-          description:['',[
-            Validators.required
-          ]]
-       
-
-
-      });
-    this.addBoxes();
-  }
+  constructor(public loanService: LoansService, private fB: FormBuilder) {}
 
   get usersArrayNew() {
     return this.form.controls.listUsers as FormArray;
@@ -68,17 +52,6 @@ export class AddLoanComponent implements OnInit {
     this.username=sessionStorage.getItem('setname')
   }
 
-  public getUsers(){
-
-    this.loanService.retrieveUsers().subscribe(
-      (data: User[]) => {
-        for(const i of data){
-          this.users.push(i);
-        }
-
-      });
-    }
-
   public submit(){
 
     const selectedUser = this.form.value.listUsers
@@ -96,10 +69,4 @@ export class AddLoanComponent implements OnInit {
     this.loanService.addLoan(newLoan).subscribe();
   
   }
-
-
- 
-
-
-
 }

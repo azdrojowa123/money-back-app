@@ -8,7 +8,7 @@
       <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" (click)="getUsers()">Change User</a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li *ngFor="let user of users" >
-          <a class ="dropdown-item" href="#">{{user.name}}</a> 
+          <a class ="dropdown-item" (click)="changeUser(user.name)">{{user.name}}</a> 
         </li>
       </div>
     </li>

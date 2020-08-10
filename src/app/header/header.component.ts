@@ -4,8 +4,6 @@ import { LoansService } from '../data/loans.service';
 import { User } from '../listloans/listloans.component';
 
 
-
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -63,6 +61,11 @@ export class HeaderComponent implements OnInit {
      
   }
 
+  changeUser(newUserName){
+    this.router.navigate(['loans',newUserName])
+
+  }
+
   getUsers(){
 
       this.loanService.retrieveUsers().subscribe(
@@ -77,7 +80,6 @@ export class HeaderComponent implements OnInit {
   addUser(){
     sessionStorage.setItem('addNewUser','0');
     this.tmp=true
-    //this.router.navigate(['user']);
   }
 
   executeSummary(){
