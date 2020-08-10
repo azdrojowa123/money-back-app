@@ -1,46 +1,49 @@
 <app-header></app-header>
-<div class="container mt-0 md-margin">
-  <div class="mt-0 md-margin">
-<div class="row mt-0" >
-  <div class="col-md-8 align-self-center">
-    <h5><em>If you want to see description of loan, please press the appropriate table row</em></h5>
- <table class="table table-hover table-responsive-md btn-table">
- <thead class="thead-dark">
-   <tr>
-     <th>From who</th>
-     <th>For who</th>
-     <th>Amount</th>
-     <th>Date</th>
-     <th>Update</th>
-     <th>Delete</th>
-   </tr>
- </thead>
- <tbody>
-   <tr *ngFor="let loan of loans " (click)="getRow(loan)" >
-     <td>{{loan?.fromwho}}</td>
-     <td>{{loan?.forwho}}</td>
-     <td [ngClass]="{older: amountValidation(loan?.amount)} " >
-       {{loan?.amount}}</td>
-     <td> {{loan.targetDate | date }}</td>
-     <td><button (click)="updateLoan(loan.id)" class="btn btn-succes">Update</button></td>
-     <td><button (click)="deleteLoan(loan.id)" class="btn btn-succes">Delete</button></td>
-   </tr>
- </tbody>
-</table>
-</div>
-<div *ngIf="descriptionInfo" class="col-md-4 align-self-center">
-  <div class="alert alert-dark alert-dismissible fade show">
-    <h4 class="aler-heading">Loan description</h4>
-    <hr>
-    <p class="mb-0">{{LoanToDescription.description}}</p>
-    <button type="button" class="close" data-dismiss="alert" (click)="deleteDescription()" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="row mt-4">
+  <div class="container">
+    <div class="col px-md-5">
+      <div style="text-align:center">
+        <h5><em> If you want to see description of loan, please press the appropriate table row</em></h5>
+      </div>
+      <table class="table table-hover table-responsive-md btn-table">
+      <thead class="thead-dark">
+        <tr>
+          <th>From who</th>
+          <th>For who</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let loan of loans " (click)="getRow(loan)" >
+        <td>{{loan?.fromwho}}</td>
+        <td>{{loan?.forwho}}</td>
+        <td [ngClass]="{older: amountValidation(loan?.amount)} " >
+          {{loan?.amount}}</td>
+        <td> {{loan.targetDate | date }}</td>
+        <td><button (click)="updateLoan(loan.id)" class="btn btn-succes">Update</button></td>
+          <td><button (click)="deleteLoan(loan.id)" class="btn btn-succes">Delete</button></td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div *ngIf="descriptionInfo" class="col px-md-5 align-self-center">
+    <div class="alert alert-dark alert-dismissible fade show">
+      <h4 class="aler-heading">Loan description</h4>
+      <hr>
+      <p class="mb-0">{{LoanToDescription.description}}</p>
+      <button type="button" class="close" data-dismiss="alert" (click)="deleteDescription()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   </div>
 </div>
-</div>
-</div>
-</div>
+
+
 
 
 
